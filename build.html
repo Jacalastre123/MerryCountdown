@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Advent Calender</title>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Caveat+Brush&family=Funnel+Display:wght@300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+   
+    <style>
+        body {
+            font-family: Rubik;
+            background-image: url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-size: 1.25em;
+            min-height: 100vh;
+            text-align: center;
+
+        }
+
+        #box {
+            background-color: rgba(170, 90, 100);
+            height: 5.1em;
+            width: 5.1em;
+            margin: 5px;
+            border: 3.5px solid black;
+border-radius: 12px;
+            opacity: 0.6;
+
+        }
+        * {
+            box-sizing: border-box;
+            justify-content: center;
+        }
+
+        #container {
+            display: flex;
+            position: relative;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #box.selectable {
+            background-color: white;
+            cursor: pointer;
+border-radius: 15px;
+        }
+
+        #box.selectable:hover {
+            background-color: lightgrey;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: rgba(222, 222, 222, 0.4);
+            border: 2px solid grey;
+border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: rgba(200, 200, 200, 0.7);
+            border: 4px solid grey;
+        }
+        
+	header {
+	background-color: lightcoral;
+	border: 2px solid black;
+border-radius: 7px;
+}
+
+meter {
+	background-color: white;
+	text-align: center;
+	width: 99%;
+border-radius: 2px;
+}
+
+
+
+
+
+      </style>
+</head>
+<body>
+<header>
+    <h1>Factual Christmas Advent calender</h1>
+    <button onclick="stopMus(this)" id="musical">Start Music</button>
+    <h3 id="countdown">Christmas Countdown fetching...</h3>
+	<label for="tracker" id="track">Fetching...</label><br>
+<meter value="0" min="1" max="25" id="tracker" optimum="20" low="1" high="24"></meter>
+<p><small>This bar will start at December (By Jacalastre123)</small> V1.0.0</p>
+</header>
+    <div id="container"></div>
+    <div id="shelf"></div>
+
+    <template id="boxes">
+        <div id="box">
+            <h2 id="datess">1</h2>
+            
+        </div>
+    </template>
+    <dialog id="dial">
+      
+        <h5 id="title"></h5>
+        <p id="info"></p>
+        <button onclick="dial.close()">Close</button>
+    </dialog>
+    <script>
+        const countdown = document.getElementById("countdown")
+        const shelf = document.getElementById("shelf")
+         const container = document.getElementById("container")
+          const musical = document.getElementById("musical")
+        let countDate = new Date("Dec 25, 2025 00:00:00").getTime()
+        let items = null
+
+        const x = setInterval(function() {
+            let now = new Date().getTime()
+            let dist = countDate - now
+
+            let days = Math.floor(dist / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((dist % (1000 * 60)) / 1000);
+
+            countdown.innerHTML = `${days}d ${hours}h ${minutes}min ${seconds}s`
+        }, 1000)
+
+        const boxes = document.getElementById("boxes")
+        const box = boxes.querySelector("#box")
+        const dateId = boxes.querySelector("#datess")
+        let win = 0
+        let total = 25
+        while (win < total) {
+            win++
+            let boxTemp = boxes.content.cloneNode(true)
+            let boxDate = boxTemp.querySelector("#datess")
+            let boxDiv = boxTemp.querySelector("#box")
+            boxDiv.setAttribute("data-day", win)
+            boxDate.innerHTML = win
+            container.appendChild(boxTemp)
+        }
+        let dato = new Date()
+        let dates = dato.getDate()
+        let months = dato.getMonth()
+        let music = true
+
+
+        
+
+
+ let aud = new Audio("We-Wish-You-chosic.com_.mp3")
+        if (months === 11) {
+        let todaysBox = document.querySelector(`#box[data-day='${dates}']`)
+        if (todaysBox) {
+            todaysBox.classList = "selectable"
+            todaysBox.onclick = function() {
+                const dial = document.getElementById("dial")
+        
+           
+            aud.play()
+            aud.loop = true
+            musical.innerHTML = "Stop Music"
+        
+                const title = document.getElementById("title")
+                const info = document.getElementById("info")
+                
+                let listoTit = {
+                    1: "On this day, Yugoslavia declared independence!",
+                    2: "On this day, Charles De Gaulle visited Moscow!",
+                    3: "Did you know that Christmas trees were popularied from Prince Albert? ",
+                    4: "Did you know that the Santa we know today came from Coca-Cola? ",
+                    5: "Did you know that hanging stocking was an accident?",
+                    6: "Did you know that volcanoes erupted on the moon?",
+                    7: "Have you ever wondered what one strand of spaghetti is called?",
+                    8: "Baby Pandas are smaller than a mouse",
+                    9: "The largest prime number is..",
+                    10: "Apple paid 1.7 million dollars for their land...",
+                    11:  "Did you know that violin bows was made by Horse Hair?",
+                    12: "Do you know what's the most recorded song?",
+                    13: "Not even identical twins have the same fingerprints...",
+                    14: "Mars is acutally not round!",
+                    15: "Hippopotomonstrosesquippedaliophobia is for people who are scared of long words.",
+                    16: "Plants ain't the only living thing to use photosynthesis",
+                    17: "The Eiffel tower still grows.",
+                    18:  "Youtube was released at 2005",
+                    19:  "Youtube was actually owned by Google",
+                    20:  "Youtube reached a billion monthly users",
+                    21:  "Three dicatators, one place.",
+                    22:  "The World's first skyscraper came from Shropshire in 1796",
+                    23:  "One Japanese Soldier kept fighting till 1974",
+                    24:  "Fidel Castro was attempted to be assasinated 600 times.",
+                    25:  "Merry Christmas!",
+                    
+                }
+                
+
+                let listoInfo = {
+                    1: "As a result of WW1, Yugoslavia declares independence, it was a country that spanned from Modern North Macedonia to Modern Slovenia. (https://www.onthisday.com/events/december/" + dates + ")",
+                    2: "When WW2 was starting to favour the allies, Charles De Gaulle, the President of France visited Moscow, USSR. (https://www.onthisday.com/events/december/" + dates + ")",
+                    3: "Prince Albert was sketched with a christmas tree which gave christmas trees a wave of popularity that is still going. (https://www.goodhousekeeping.com/holidays/christmas-ideas/g2972/surprising-christmas-facts/)",
+                    4: "There was no well appointed look of Santa until the red santa we knew were drawn from a Coke Advert in 1931 (https://www.goodhousekeeping.com/holidays/christmas-ideas/g2972/surprising-christmas-facts/)",
+                    5: "It turned out that stockings came from when some money that St Nicholas dropped the money down the chimney, landing on some ladies' stockings. (https://www.goodhousekeeping.com/holidays/christmas-ideas/g2972/surprising-christmas-facts/)",
+                    6: "Before dinosaurs, the moon had volcanic eruptions! (https://www.thefactsite.com/1000-interesting-facts/)",
+                    7: "One strand of spaghetti is called 'Spaghetto'. (https://www.thefactsite.com/1000-interesting-facts/),",
+                    8: "When a baby Panda was born, it was actually smaller than a mouse. (https://www.thefactsite.com/1000-interesting-facts/)",
+                    9: "It contains nearly 25 million digits, it is 2^82,589,933 - 1. (https://www.thefactsite.com/1000-interesting-facts/)",
+                    10: "The crazy part was that the land only costed 181 thousand dollars. (https://www.thefactsite.com/1000-interesting-facts/)",
+                    11: "Violin Bows are usually made with Horse Hair, isn't that crazy?",
+                    12: "The most recorded song is Silent Night with 733 different versions. (https://www.goodhousekeeping.com/holidays/christmas-ideas/g2972/surprising-christmas-facts/)",
+                    13: "Identical twins do not have an identical fingerprint due to various factors during birth. (https://www.sciencefocus.com/science/fun-facts)",
+                    14: "Mars is not round, it is more like a Rugby ball. (https://www.sciencefocus.com/science/fun-facts)",
+                    15:  "This word was first used by a Roman poet and its going to sure scare people who has it. (https://www.sciencefocus.com/science/fun-facts)",
+                    16:  "Photosynthesis is not only used by plants but also Algae and Sea Slugs (https://www.sciencefocus.com/science/fun-facts)",
+                    17:  "The Eiffel Tower grows a whopping 6 inches, that is a little smaller than you current phone! (https://parade.com/living/interesting-facts)",
+                    18:  "Youtube was released at 2005 with its first video 'Me at the Zoo' released by Jawed in April 2025 (https://historytimelines.co/timeline/youtube)",
+                    19:  "More than a year after Youtube's debut, Google bought it for 1.65 billon dollars. (https://historytimelines.co/timeline/youtube)",
+                    20:  "Youtube had reached a billion monthly users as far back a 12, how shocking! (https://historytimelines.co/timeline/youtube)",
+                    21:  "Stalin, Hitler and Tito onced lived atVienna at the same time back at 1913 (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
+                    22:  "In 1796 Shropshire built the world's first skyscraper. It may not look like one but it contained the formula for newer sky scrapers (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
+                    23:  "One Japanese soldier was told not to surrender, so he did! He kept fighting till 1974 when his boss went to get him. (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
+                    24:  "There were more than 600 plots to kill Fidel Castro, he was targeted by the US and his political opponents. (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
+                    25: "This concludes our Christmas factual run!",
+                }
+
+                title.innerHTML = listoTit[dates]
+                info.innerHTML = listoInfo[dates]
+                dial.showModal()
+            }
+        }
+    
+    }
+    function stopMus(button) {
+      
+            let aud = new Audio("We-Wish-You-chosic.com_.mp3")
+            aud.play()
+            aud.loop = true
+            musical.innerHTML = "Stop Music"
+      
+        
+        musical.onclick = function(button) {
+           aud.pause()
+            stop(this)
+            musical.onclick = function() {
+                stopMus(this)
+            }
+        }
+
+        
+
+      
+    }
+
+   function stop() {
+           
+            
+            musical.innerHTML = "Start Music"
+            
+        }
+
+
+
+let meterDate = new Date().getDate()
+
+let meterMonth = new Date().getMonth()
+const tracker = document.getElementById("tracker")
+const track = document.getElementById("track")
+let meterValue = meterDate
+if (meterMonth === 11 && meterDate <= 25) {
+meterValue = meterDate
+tracker.value = meterValue
+tracker.min = "1"
+tracker.max = "25"
+
+const inter = setInterval(function() {
+tracker.value = meterValue
+	if  (meterDate >= 1 && meterDate <= 3) {
+	track.innerHTML = "Santa is preparing his Elves!"
+}
+
+	if  (meterDate >= 4 && meterDate <= 9) {
+	track.innerHTML = "Santa collecting all of his letters!"
+}
+
+	if  (meterDate >= 10 && meterDate <= 11) {
+	track.innerHTML = "Santa is organising and preparing for his shopping spree!"
+}
+
+if  (meterDate >= 12 && meterDate <= 22) {
+	track.innerHTML = "Santa is going to shops all over the world!"
+}
+
+if  (meterDate >= 23 && meterDate <= 24) {
+	track.innerHTML = "The elves are wrapping all the presents!"
+}
+
+if  (meterDate >= 5 && meterDate <= 25) {
+	track.innerHTML = "He starts to go to people's chimneys and give everyone their presents!"
+}
+
+if  (meterDate >= 26 && meterDate <= 31) {
+	track.innerHTML = "Santa takes a nice rest!"
+}
+
+if  (meterDate >= 1 && meterDate <= 1) {
+	track.innerHTML = "He watches the fireworks the elves made for him!"
+}
+	
+}, 1000)
+}
+
+else {
+	tracker.value = 0;
+}
+    </script>
+</body>
+</html>
