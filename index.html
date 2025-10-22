@@ -46,6 +46,7 @@ border-radius: 12px;
             background-color: white;
             cursor: pointer;
 border-radius: 15px;
+opacity: 1.0;
         }
 
         #box.selectable:hover {
@@ -85,11 +86,11 @@ border-radius: 2px;
 </head>
 <body>
 <header>
-    <h1>Factual Christmas Countdown </h1>
+    <h1>Factual Christmas Advent calender</h1>
     <button onclick="stopMus(this)" id="musical">Start Music</button>
     <h3 id="countdown">Christmas Countdown fetching...</h3>
 	<label for="tracker" id="track">Fetching...</label><br>
-<meter value="0" min="1" max="25" id="tracker" optimum="20" low="1" high="24"></meter>
+<meter value="2" min="1" max="25" id="tracker" optimum="20" low="1" high="24"></meter>
 <p><small>This bar will start at December (By Jacalastre123)</small> V1.0.0</p>
 </header>
     <div id="container"></div>
@@ -141,7 +142,7 @@ border-radius: 2px;
             boxDate.innerHTML = win
             container.appendChild(boxTemp)
         }
-        let dato = new Date()
+        let dato = new Date("Dec 20, 2025")
         let dates = dato.getDate()
         let months = dato.getMonth()
         let music = true
@@ -210,14 +211,14 @@ border-radius: 2px;
                     11: "Violin Bows are usually made with Horse Hair, isn't that crazy?",
                     12: "The most recorded song is Silent Night with 733 different versions. (https://www.goodhousekeeping.com/holidays/christmas-ideas/g2972/surprising-christmas-facts/)",
                     13: "Identical twins do not have an identical fingerprint due to various factors during birth. (https://www.sciencefocus.com/science/fun-facts)",
-                    14: "Mars is not round, it is more like a Rugby ball. (https://www.sciencefocus.com/science/fun-facts)",
+                    14: "Did you know that, Mars is acutally not round? It is more like a Rugby ball. (https://www.sciencefocus.com/science/fun-facts)",
                     15:  "This word was first used by a Roman poet and its going to sure scare people who has it. (https://www.sciencefocus.com/science/fun-facts)",
                     16:  "Photosynthesis is not only used by plants but also Algae and Sea Slugs (https://www.sciencefocus.com/science/fun-facts)",
-                    17:  "The Eiffel Tower grows a whopping 6 inches, that is a little smaller than you current phone! (https://parade.com/living/interesting-facts)",
+                    17:  "The Eiffel Tower grows a whopping 6 inches yearly, that is a little smaller than you current phone! (https://parade.com/living/interesting-facts)",
                     18:  "Youtube was released at 2005 with its first video 'Me at the Zoo' released by Jawed in April 2025 (https://historytimelines.co/timeline/youtube)",
                     19:  "More than a year after Youtube's debut, Google bought it for 1.65 billon dollars. (https://historytimelines.co/timeline/youtube)",
-                    20:  "Youtube had reached a billion monthly users as far back a 12, how shocking! (https://historytimelines.co/timeline/youtube)",
-                    21:  "Stalin, Hitler and Tito onced lived atVienna at the same time back at 1913 (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
+                    20:  "Youtube had reached a billion monthly users as far back as 2012, how shocking! (https://historytimelines.co/timeline/youtube)",
+                    21:  "Stalin, Hitler and Tito onced lived at Vienna at the same time back at 1913 (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
                     22:  "In 1796 Shropshire built the world's first skyscraper. It may not look like one but it contained the formula for newer sky scrapers (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
                     23:  "One Japanese soldier was told not to surrender, so he did! He kept fighting till 1974 when his boss went to get him. (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
                     24:  "There were more than 600 plots to kill Fidel Castro, he was targeted by the US and his political opponents. (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
