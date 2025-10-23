@@ -22,12 +22,12 @@
 
         #box {
             background-color: rgba(170, 90, 100);
-            height: 5.1em;
+            height: Calc(30vh / 2.5);
             width: 5.1em;
-            margin: 5px;
-            border: 3.5px solid black;
-border-radius: 12px;
-            opacity: 0.6;
+            margin: 0px;
+            border: 3.5px solid white;
+
+            opacity: 0.5;
 
         }
         * {
@@ -43,9 +43,8 @@ border-radius: 12px;
         }
 
         #box.selectable {
-            background-color: white;
+           
             cursor: pointer;
-border-radius: 15px;
 opacity: 1.0;
         }
 
@@ -68,7 +67,10 @@ border-radius: 4px;
 	header {
 	background-color: lightcoral;
 	border: 2px solid black;
-border-radius: 7px;
+
+display: flex;
+justify-content: center;
+padding: 3px;
 }
 
 meter {
@@ -78,8 +80,18 @@ meter {
 border-radius: 2px;
 }
 
+#counter {
+display: relative;
+margin: 5px;
+}
 
+h1 {
+font-size: 1.4em;
+margin: auto;
+display: relative;
+text-align: center;
 
+}
 
 
       </style>
@@ -88,11 +100,21 @@ border-radius: 2px;
 <header>
     <h1>Factual Christmas Advent calender</h1>
     <button onclick="stopMus(this)" id="musical">Start Music</button>
+    
+<div class="counter">
     <h3 id="countdown">Christmas Countdown fetching...</h3>
 	<label for="tracker" id="track">Fetching...</label><br>
 <meter value="2" min="1" max="25" id="tracker" optimum="20" low="1" high="24"></meter>
 <p><small>This bar will start at December (By Jacalastre123)</small> V1.0.0</p>
-</header>
+</div>
+</header><br>
+<form>
+    <label for="bg">Background Image: </label>
+    <input type="text" id="bg">
+    
+</form>
+<button onclick="submit()">Submit</button>
+<br>
     <div id="container"></div>
     <div id="shelf"></div>
 
@@ -142,7 +164,7 @@ border-radius: 2px;
             boxDate.innerHTML = win
             container.appendChild(boxTemp)
         }
-        let dato = new Date("Dec 20, 2025")
+        let dato = new Date()
         let dates = dato.getDate()
         let months = dato.getMonth()
         let music = true
@@ -222,7 +244,7 @@ border-radius: 2px;
                     22:  "In 1796 Shropshire built the world's first skyscraper. It may not look like one but it contained the formula for newer sky scrapers (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
                     23:  "One Japanese soldier was told not to surrender, so he did! He kept fighting till 1974 when his boss went to get him. (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
                     24:  "There were more than 600 plots to kill Fidel Castro, he was targeted by the US and his political opponents. (https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/)",
-                    25: "This concludes our Christmas factual run!",
+                    25: "This concludes our Christmas factual run! Merry Christmas!",
                 }
 
                 title.innerHTML = listoTit[dates]
@@ -304,15 +326,24 @@ if  (meterDate >= 26 && meterDate <= 31) {
 	track.innerHTML = "Santa takes a nice rest!"
 }
 
-if  (meterDate >= 1 && meterDate <= 1) {
-	track.innerHTML = "He watches the fireworks the elves made for him!"
-}
 	
 }, 1000)
 }
 
 else {
 	tracker.value = 0;
+}
+
+const bg = document.getElementById("bg")
+function submit() {
+   
+    if (bg.value === "") {
+
+    }
+
+    else {
+         document.body.style.backgroundImage = "url('" + bg.value + "')"
+    }
 }
     </script>
 </body>
