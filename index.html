@@ -8,6 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Caveat+Brush&family=Funnel+Display:wght@300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredericka+the+Great&family=Rubik+Gemstones&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: Rubik;
@@ -17,7 +20,7 @@
             font-size: 1.25em;
             min-height: 100vh;
             text-align: center;
-
+		z-index: 1;
         }
 
         #box {
@@ -73,6 +76,12 @@ justify-content: center;
 padding: 3px;
 }
 
+form, details {
+    background-color: lightcoral;
+	border: 2px solid black;
+    padding: 3px;
+}
+
 meter {
 	background-color: white;
 	text-align: center;
@@ -92,7 +101,16 @@ display: relative;
 text-align: center;
 
 }
+details {
 
+cursor: pointer;
+}
+
+.sub {
+    background-color: rgba(12, 50, 150, 1);
+    padding: 5px;
+    color: white;
+}
 
       </style>
 </head>
@@ -100,20 +118,42 @@ text-align: center;
 <header>
     <h1>Factual Christmas Advent calender</h1>
     <button onclick="stopMus(this)" id="musical">Start Music</button>
-    
+    <button onclick="defaulter()">Default Bg</button>
 <div class="counter">
     <h3 id="countdown">Christmas Countdown fetching...</h3>
-	<label for="tracker" id="track">Fetching...</label><br>
+	<label for="tracker" id="track">Santa Tracker Inactive</label><br>
 <meter value="2" min="1" max="25" id="tracker" optimum="20" low="1" high="24"></meter>
-<p><small>This bar will start at December (By Jacalastre123)</small> V1.0.0</p>
+<p><small>This bar will start at December (By Jacalastre123)</small> V1.2.0</p>
 </div>
 </header><br>
 <form>
-    <label for="bg">Background Image: </label>
+    <label for="bg" class="label1">Background Image: </label>
     <input type="text" id="bg">
-    
+
 </form>
-<button onclick="submit()">Submit</button>
+
+	
+    	<details>
+<label for="bg">Font: </label>
+	<summary id="fontChosen">Rubik</summary>
+	<button onclick="document.body.style.fontFamily = 'roboto'; document.getElementById('fontChosen').innerHTML = 'Roboto'" style="font-family: roboto;">Roboto</button>
+	<button onclick="document.body.style.fontFamily = 'funnel display'; document.getElementById('fontChosen').innerHTML = 'Funnel Display'" style="font-family: funnel display;">Funnel Display</button>
+<button onclick="document.body.style.fontFamily = 'alan sans'; document.getElementById('fontChosen').innerHTML = 'Alan Sans'" style="font-family: alan sans;">Alan Sans</button>
+<button onclick="document.body.style.fontFamily = 'caveat brush'; document.getElementById('fontChosen').innerHTML = 'Caveat Brush'" style="font-family: caveat brush;">Caveat Brush</button>
+<button onclick="document.body.style.fontFamily = 'rubik'; document.getElementById('fontChosen').innerHTML = 'Rubik'" style="font-family: rubik;">Rubik</button>
+<button onclick="document.body.style.fontFamily = 'Open Sans'; document.getElementById('fontChosen').innerHTML = 'Open Sans'" style="font-family: Open Sans;">Open Sans</button>
+<button onclick="document.body.style.fontFamily = 'Ubuntu'; document.getElementById('fontChosen').innerHTML = 'Ubuntu'" style="font-family: Ubuntu;">Ubuntu</button>
+<button onclick="document.body.style.fontFamily = 'Inter'; document.getElementById('fontChosen').innerHTML = 'Inter'" style="font-family: inter;">Inter</button>
+<button onclick="document.body.style.fontFamily = 'bebas neue'; document.getElementById('fontChosen').innerHTML = 'Bebas Neue'" style="font-family: bebas Neue;">Babas Neue</button>
+<button onclick="document.body.style.fontFamily = 'Rubik gemstones'; document.getElementById('fontChosen').innerHTML = 'Rubik Gemstones'" style="font-family: Rubik Gemstones;">Rubik Gemstones</button>
+
+
+
+    
+</details>
+
+    <button onclick="submit()" class="sub">Submit</button>
+ 
 <br>
     <div id="container"></div>
     <div id="shelf"></div>
@@ -335,16 +375,32 @@ else {
 }
 
 const bg = document.getElementById("bg")
-function submit() {
-   
-    if (bg.value === "") {
-
+let bgValue = localStorage.getItem("bgValue") || ""
+if (bgValue.trim() === "") {   
+        document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
+    }   
+   else {
+         document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
+function submit() {
+let bgValue = bg.value
+
+    if (bgValue.trim() === "") {   
+        document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
+    }   
 
     else {
-         document.body.style.backgroundImage = "url('" + bg.value + "')"
+         document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
+localStorage.setItem("bgValue", bgValue)
 }
+
+function defaulter() {
+    bgValue = "https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+    localStorage.setItem("bgValue", bgValue)
+    document.body.style.backgroundImage = "url('https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3')"
+}
+
     </script>
 </body>
 </html>
