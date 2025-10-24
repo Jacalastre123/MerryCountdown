@@ -60,11 +60,17 @@ opacity: 1.0;
             background-color: rgba(222, 222, 222, 0.4);
             border: 2px solid grey;
 border-radius: 4px;
+padding: 5px;
         }
 
         button:hover {
             background-color: rgba(200, 200, 200, 0.7);
-            border: 4px solid grey;
+            
+        }
+
+        button:hover {
+            background-color: rgb(210, 180, 180);
+            
         }
         
 	header {
@@ -78,7 +84,7 @@ padding: 3px;
 
 form, details {
     background-color: lightcoral;
-	border: 2px solid black;
+	
     padding: 3px;
 }
 
@@ -107,18 +113,23 @@ cursor: pointer;
 }
 
 .sub {
-    background-color: rgba(12, 50, 150, 1);
+    
     padding: 5px;
-    color: white;
+    
 }
+#dial2 {
+    background-color: lightcoral;
+    border-radius: 20px;
 
+}
       </style>
 </head>
 <body>
 <header>
     <h1>Factual Christmas Advent calender</h1>
     <button onclick="stopMus(this)" id="musical">Start Music</button>
-    <button onclick="defaulter()">Default Bg</button>
+    
+    <button onclick="document.getElementById('dial2').showModal()">Costomise</button>
 <div class="counter">
     <h3 id="countdown">Christmas Countdown fetching...</h3>
 	<label for="tracker" id="track">Santa Tracker Inactive</label><br>
@@ -126,13 +137,14 @@ cursor: pointer;
 <p><small>This bar will start at December (By Jacalastre123)</small> V1.2.0</p>
 </div>
 </header><br>
+<dialog id="dial2">
 <form>
     <label for="bg" class="label1">Background Image: </label>
     <input type="text" id="bg">
 
 </form>
 
-	
+
     	<details>
 <label for="bg">Font: </label>
 	<summary id="fontChosen">Rubik</summary>
@@ -151,9 +163,10 @@ cursor: pointer;
 
     
 </details>
-
-    <button onclick="submit()" class="sub">Submit</button>
- 
+<hr>
+    <button onclick="submit(); document.getElementById('dial2').close()" class="sub">Submit/Close</button>
+<button onclick="defaulter()">Default Bg</button>
+ </dialog>
 <br>
     <div id="container"></div>
     <div id="shelf"></div>
