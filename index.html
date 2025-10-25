@@ -102,6 +102,7 @@ border-radius: 2px;
 #counter {
 display: relative;
 margin: 5px;
+	background-color: rgba(255,255,255,0.25);
 }
 
 h1 {
@@ -126,6 +127,25 @@ cursor: pointer;
     border-radius: 20px;
 
 }
+
+meter::-webkit-meter-optimum-valie {
+	background-color: green;
+	animation: running 2s
+}
+
+@keyframe running {
+	0% {
+		background-color: lime;
+	}
+
+		50% {
+		background-color: green;
+	}
+
+		100% {
+		background-color: rgb(50, 30, 100);
+	}
+}
       </style>
 </head>
 <body>
@@ -137,20 +157,21 @@ cursor: pointer;
 <div class="counter">
     <h3 id="countdown">Christmas Countdown fetching...</h3>
 	<label for="tracker" id="track">Santa Tracker Inactive</label><br>
-<meter value="2" min="1" max="25" id="tracker" optimum="20" low="1" high="24"></meter>
-<p><small>This bar will start at December (By Jacalastre123)</small> V1.2.0</p>
+<meter value="2" min="1" max="25" id="tracker"></meter>
+<p><small>This bar will start at December (By Jacalastre123)</small> V1.3.0</p>
 </div>
 </header><br>
 <dialog id="dial2">
+	<h3>Costomising Menu</h3>
 <form>
     <label for="bg" class="label1">Background Image: </label>
     <input type="text" id="bg">
 
 </form>
 
-
+<label for="bg">Choose Font: </label>
     	<details>
-<label for="bg">Font: </label>
+
 	<summary id="fontChosen">Rubik</summary>
 	<button onclick="document.body.style.fontFamily = 'roboto'; document.getElementById('fontChosen').innerHTML = 'Roboto'" style="font-family: roboto;">Roboto</button>
 	<button onclick="document.body.style.fontFamily = 'funnel display'; document.getElementById('fontChosen').innerHTML = 'Funnel Display'" style="font-family: funnel display;">Funnel Display</button>
