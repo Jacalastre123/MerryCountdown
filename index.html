@@ -153,7 +153,7 @@ meter::-webkit-meter-optimum-valie {
     <h1>Factual Christmas Advent calender</h1>
     <button onclick="stopMus(this)" id="musical">Start Music</button>
     
-    <button onclick="document.getElementById('dial2').showModal()">Costomise</button>
+    <button onclick="document.getElementById('dial2').showModal()">Customise</button>
 <div class="counter">
     <h3 id="countdown">Christmas Countdown fetching...</h3>
 	<label for="tracker" id="track">Santa Tracker Inactive</label><br>
@@ -162,7 +162,7 @@ meter::-webkit-meter-optimum-valie {
 </div>
 </header><br>
 <dialog id="dial2">
-	<h3>Costomising Menu</h3>
+	<h3>Customising Menu</h3>
 <form>
     <label for="bg" class="label1">Background Image: </label>
     <input type="text" id="bg">
@@ -173,16 +173,16 @@ meter::-webkit-meter-optimum-valie {
     	<details>
 
 	<summary id="fontChosen">Rubik</summary>
-	<button onclick="document.body.style.fontFamily = 'roboto'; document.getElementById('fontChosen').innerHTML = 'Roboto'" style="font-family: roboto;">Roboto</button>
-	<button onclick="document.body.style.fontFamily = 'funnel display'; document.getElementById('fontChosen').innerHTML = 'Funnel Display'" style="font-family: funnel display;">Funnel Display</button>
-<button onclick="document.body.style.fontFamily = 'alan sans'; document.getElementById('fontChosen').innerHTML = 'Alan Sans'" style="font-family: alan sans;">Alan Sans</button>
-<button onclick="document.body.style.fontFamily = 'caveat brush'; document.getElementById('fontChosen').innerHTML = 'Caveat Brush'" style="font-family: caveat brush;">Caveat Brush</button>
-<button onclick="document.body.style.fontFamily = 'rubik'; document.getElementById('fontChosen').innerHTML = 'Rubik'" style="font-family: rubik;">Rubik</button>
-<button onclick="document.body.style.fontFamily = 'Open Sans'; document.getElementById('fontChosen').innerHTML = 'Open Sans'" style="font-family: Open Sans;">Open Sans</button>
-<button onclick="document.body.style.fontFamily = 'Ubuntu'; document.getElementById('fontChosen').innerHTML = 'Ubuntu'" style="font-family: Ubuntu;">Ubuntu</button>
-<button onclick="document.body.style.fontFamily = 'Inter'; document.getElementById('fontChosen').innerHTML = 'Inter'" style="font-family: inter;">Inter</button>
-<button onclick="document.body.style.fontFamily = 'bebas neue'; document.getElementById('fontChosen').innerHTML = 'Bebas Neue'" style="font-family: bebas Neue;">Babas Neue</button>
-<button onclick="document.body.style.fontFamily = 'Rubik gemstones'; document.getElementById('fontChosen').innerHTML = 'Rubik Gemstones'" style="font-family: Rubik Gemstones;">Rubik Gemstones</button>
+	<button onclick="document.body.style.fontFamily = 'roboto'; document.getElementById('fontChosen').innerHTML = 'Roboto'; fonto(this)" style="font-family: roboto;">Roboto</button>
+	<button onclick="document.body.style.fontFamily = 'funnel display'; document.getElementById('fontChosen').innerHTML = 'Funnel Display'; fonto(this)" style="font-family: funnel display;">Funnel Display</button>
+<button onclick="document.body.style.fontFamily = 'alan sans'; document.getElementById('fontChosen').innerHTML = 'Alan Sans'; fonto(this)" style="font-family: alan sans;">Alan Sans</button>
+<button onclick="document.body.style.fontFamily = 'caveat brush'; document.getElementById('fontChosen').innerHTML = 'Caveat Brush'; fonto(this)" style="font-family: caveat brush;">Caveat Brush</button>
+<button onclick="document.body.style.fontFamily = 'rubik'; document.getElementById('fontChosen').innerHTML = 'Rubik'; fonto(this)" style="font-family: rubik;">Rubik</button>
+<button onclick="document.body.style.fontFamily = 'Open Sans'; document.getElementById('fontChosen').innerHTML = 'Open Sans'; fonto(this)" style="font-family: Open Sans;">Open Sans</button>
+<button onclick="document.body.style.fontFamily = 'Ubuntu'; document.getElementById('fontChosen').innerHTML = 'Ubuntu'; fonto(this)" style="font-family: Ubuntu;">Ubuntu</button>
+<button onclick="document.body.style.fontFamily = 'Inter'; document.getElementById('fontChosen').innerHTML = 'Inter'; fonto(this)" style="font-family: inter;">Inter</button>
+<button onclick="document.body.style.fontFamily = 'bebas neue'; document.getElementById('fontChosen').innerHTML = 'Bebas Neue'; fonto" style="font-family: bebas Neue;">Babas Neue</button>
+<button onclick="document.body.style.fontFamily = 'Rubik gemstones'; document.getElementById('fontChosen').innerHTML = 'Rubik Gemstones'; fonto(this)" style="font-family: Rubik Gemstones;">Rubik Gemstones</button>
 
 
 
@@ -431,6 +431,16 @@ let bgValue = bg.value
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
 localStorage.setItem("bgValue", bgValue)
+}
+
+		const fontChosen = document.getElementById("fontChosen")
+let fontValue = localStorage.getItem("fontValue") || "rubik"
+document.body.style.fontFamily = fontValue
+function submit(button) {
+let fontValue = fontChosen.textContent
+document.body.style.fontFamily = fontValue
+
+localStorage.setItem("fontValue", fontValue)
 }
 
 function defaulter() {
