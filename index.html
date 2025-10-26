@@ -191,7 +191,7 @@ meter::-webkit-meter-optimum-valie {
     
 </details>
 <hr>
-    <button onclick="submit(); document.getElementById('dial2').close()" class="sub">Submit/Close</button>
+    <button onclick="submit()" class="sub">Submit/Close</button>
 <button onclick="defaulter()">Default Bg</button>
 	<button onclick="document.getElementById('preview').src = bg.value.trim() == '' ? 'https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3' : bg.value">Preview</button>
  </dialog>
@@ -434,6 +434,7 @@ let bgValue = bg.value
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
 localStorage.setItem("bgValue", bgValue)
+	document.getElementById('dial2').close()
 }
 
 		const fontChosen = document.getElementById("fontChosen")
