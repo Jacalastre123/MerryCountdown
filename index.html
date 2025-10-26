@@ -168,7 +168,7 @@ meter::-webkit-meter-optimum-valie {
     <input type="text" id="bg">
 
 </form>
-<div id="preview" height="100" width="200" style="border: 2px solid black;"></div>
+<img id="preview" height="100" width="200" style="border: 2px solid black;">
 <label for="bg">Choose Font: </label>
     	<details>
 
@@ -191,7 +191,7 @@ meter::-webkit-meter-optimum-valie {
 <hr>
     <button onclick="submit(); document.getElementById('dial2').close()" class="sub">Submit/Close</button>
 <button onclick="defaulter()">Default Bg</button>
-	<button onclick="document.getElementById('preview').style.backgroundImage = `url(${ = bg.value.trim() == '' ? 'https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3' : bg.value}`)">Preview</button>
+	<button onclick="document.getElementById('preview').src = bg.value.trim() == '' ? 'https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3' : bg.value">Preview</button>
  </dialog>
 <br>
     <div id="container"></div>
