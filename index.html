@@ -232,6 +232,7 @@ meter::-webkit-meter-optimum-valie {
             let boxTemp = boxes.content.cloneNode(true)
             let boxDate = boxTemp.querySelector("#datess")
             let boxDiv = boxTemp.querySelector("#box")
+			boxDiv.classList = "box"
             boxDiv.setAttribute("data-day", win)
             boxDate.innerHTML = win
             container.appendChild(boxTemp)
@@ -461,7 +462,10 @@ let colourValue = localStorage.getItem("colourValue") || "#F08080"
 document.body.style.fontFamily = fontValue
 	const bgCo = document.getElementById("bgCo")
 		const headClass = document.querySelector("header")
-		const boxClass = document.querySelectorAll("#box")
+		const boxClass = document.querySelectorAll(".box")
+			boxClass.forEach(box => {
+			box.style.backgroundColor = colourValue
+		})
 
 
 headClass.style.backgroundColor = colourValue
