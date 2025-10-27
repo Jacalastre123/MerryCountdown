@@ -123,7 +123,7 @@ cursor: pointer;
     padding: 5px;
     
 }
-#dial2 {
+#dial2, #dial1 {
     background-color: lightcoral;
     border-radius: 20px;
 
@@ -155,9 +155,10 @@ meter::-webkit-meter-optimum-valie {
 <form>
     <label for="bg" class="label1">Background Image: </label>
     <input type="text" id="bg">
-
+	<label for="bgCo" class="label1">Interface Colour: </label>
+    <input type="color" id="bgCo" value="#f08080" >
 </form>
-	
+
 <img id="preview" height="100" width="200" style="border: 2px solid black; text-align: center;">
 	<br>
 <label for="bg">Choose Font: </label>
@@ -444,7 +445,27 @@ function defaulter() {
     localStorage.setItem("bgValue", bgValue)
     document.body.style.backgroundImage = "url('https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3')"
 }
+		
+let colourValue = localStorage.getItem("colourValue") || "#F08080"
+document.body.style.fontFamily = fontValue
+	const bgCo = document.getElementById("bgCo")
+		const headClass = document.querySelector("header")
+		const boxClass = document.querySelector("#box")
+function fonto(button) {
+let colourValue = bgCo.value
+headClass.style.backgroundColor = colourValue
+boxClass.style.backgroundColor = colourValue
+dial2.style.backgroundColor = colourValue
+document.getElementById("dial").style.backgroundColor = colourValue
+document.body.style.fontFamily = fontValue
 
+localStorage.setItem("colourValue", colourValue)
+}
+		
+headClass.style.backgroundColor = colourValue
+boxClass.style.backgroundColor = colourValue
+dial2.style.backgroundColor = colourValue
+document.getElementById("dial").style.backgroundColor = colourValue
     </script>
 </body>
 </html>
