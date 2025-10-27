@@ -439,7 +439,7 @@ localStorage.setItem("colourValue", colourValue)
 dial2.close()
 }
 
-		const fontChosen = dial2.querySelector("#fontChosen")
+		const fontChosen = document.getzelementById("#fontChosen")
         const dial = document.getElementById("dial")
 let fontValue = localStorage.getItem("fontValue") || "rubik"
 document.body.style.fontFamily = fontValue
@@ -461,7 +461,7 @@ let colourValue = localStorage.getItem("colourValue") || "#F08080"
 document.body.style.fontFamily = fontValue
 	const bgCo = document.getElementById("bgCo")
 		const headClass = document.querySelector("header")
-		const boxClass = document.querySelector("#box")
+		const boxClass = document.querySelectorAll("#box")
 
 
 headClass.style.backgroundColor = colourValue
