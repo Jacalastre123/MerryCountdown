@@ -435,7 +435,9 @@ document.getElementById("dial").style.backgroundColor = colourValue
 document.body.style.fontFamily = fontValue
 
 localStorage.setItem("colourValue", colourValue)
-
+	boxClass.forEach(box => {
+			box.style.backgroundColor = colourValue
+		})
 		
 dial2.close()
 }
