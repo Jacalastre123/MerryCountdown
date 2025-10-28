@@ -11,6 +11,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredericka+the+Great&family=Rubik+Gemstones&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+
 <link rel="apple-touch-icon" sizes="180x180" href="/MerryCountdown/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/MerryCountdown/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/MerryCountdown/favicon-16x16.png">
@@ -68,14 +73,10 @@ padding: 5px;
         }
 
         button:hover {
-            background-color: rgba(200, 200, 200, 0.7);
+            background-color: rgba(180, 180, 180, 0.5)
             
         }
 
-        button:hover {
-            background-color: rgb(210, 180, 180);
-            
-        }
         
 	header {
 	background-color: lightcoral;
@@ -89,17 +90,22 @@ padding: 8px;
 
 
 meter {
-	background-color: white;
+	
 	text-align: center;
 	width: 99%;
 border-radius: 2px;
 }
 
-#counter {
-display: relative;
-margin: 5px;
-	background-color: rgba(255,255,255,0.25);
-	padding: 1px;
+.counter {
+
+
+background-color: rgba(255, 255, 255, 0.45);
+padding: 5px;
+width: 50%;
+text-align: center;
+justify-content: center;
+
+
 }
 
 h1 {
@@ -125,36 +131,35 @@ cursor: pointer;
 
 }
 
-meter::-webkit-meter-optimum-valie {
-	background-color: green;
-	animation: running 2s
-}
-
 
       </style>
 </head>
 <body>
 <header>
     <h1>Factual Christmas Advent calender</h1>
-    <button onclick="stopMus(this)" id="musical">Start Music</button>
+    
+<div class="counter"><br>
+    <h3 id="countdown">
+
+Countdown fetching... Preparing Font..</h3>
+	<label for="tracker" id="track">Tracking starts at December</label><br>
+<meter value="2" min="1" max="25" id="tracker"></meter><br>
+<button onclick="stopMus(this)" id="musical">Start Music</button>
     
     <button onclick="document.getElementById('dial2').showModal()">Customise</button>
-<div class="counter">
-    <h3 id="countdown">Christmas Countdown fetching...</h3>
-	<label for="tracker" id="track">Santa Tracker Inactive</label><br>
-<meter value="2" min="1" max="25" id="tracker"></meter>
-<p><small>This bar will start at December (By Jacalastre123)</small> V1.3.0</p>
+
 </div>
+
 </header><br>
 <dialog id="dial2">
 	<h3>Customising Menu</h3>
 <form>
     <label for="bg" class="label1">Background Image: </label>
-    <input type="text" id="bg"><br>
+    <input type="text" id="bg"><br><br>
 	<label for="bgCo" class="label1">Interface Colour: </label>
     <input type="color" id="bgCo" value="#f08080" >
 </form>
-
+<br>
 <img id="preview" height="100" width="200" style="border: 2px solid black; text-align: center;">
 	<br>
 <label for="bg">Choose Font: </label>
@@ -165,14 +170,14 @@ meter::-webkit-meter-optimum-valie {
 	<button onclick="document.body.style.fontFamily = 'funnel display'; document.getElementById('fontChosen').innerHTML = 'Funnel Display'; fonto(this)" style="font-family: funnel display;">Funnel Display</button>
 <button onclick="document.body.style.fontFamily = 'alan sans'; document.getElementById('fontChosen').innerHTML = 'Alan Sans'; fonto(this)" style="font-family: alan sans;">Alan Sans</button>
 <button onclick="document.body.style.fontFamily = 'caveat brush'; document.getElementById('fontChosen').innerHTML = 'Caveat Brush'; fonto(this)" style="font-family: caveat brush;">Caveat Brush</button>
-<button onclick="document.body.style.fontFamily = 'rubik'; document.getElementById('fontChosen').innerHTML = 'Rubik'; fonto(this)" style="font-family: rubik;">Rubik</button>
+<button onclick="document.body.style.fontFamily = 'Rubik'; document.getElementById('fontChosen').innerHTML = 'Rubik'; fonto(this)" style="font-family: rubik;">Rubik</button>
 <button onclick="document.body.style.fontFamily = 'Open Sans'; document.getElementById('fontChosen').innerHTML = 'Open Sans'; fonto(this)" style="font-family: Open Sans;">Open Sans</button>
 <button onclick="document.body.style.fontFamily = 'Ubuntu'; document.getElementById('fontChosen').innerHTML = 'Ubuntu'; fonto(this)" style="font-family: Ubuntu;">Ubuntu</button>
 <button onclick="document.body.style.fontFamily = 'Inter'; document.getElementById('fontChosen').innerHTML = 'Inter'; fonto(this)" style="font-family: inter;">Inter</button>
 <button onclick="document.body.style.fontFamily = 'bebas neue'; document.getElementById('fontChosen').innerHTML = 'Bebas Neue'; fonto(this)" style="font-family: bebas Neue;">Bebas Neue</button>
 <button onclick="document.body.style.fontFamily = 'Rubik gemstones'; document.getElementById('fontChosen').innerHTML = 'Rubik Gemstones'; fonto(this)" style="font-family: Rubik Gemstones;">Rubik Gemstones</button>
-
-
+<button onclick="document.body.style.fontFamily = 'Comic Relief'; document.getElementById('fontChosen').innerHTML = 'Comic Relief'; fonto(this)" style="font-family: Comic Relief;">Comic Relief</button>
+<button onclick="document.body.style.fontFamily = 'Bitcount Grid Single'; document.getElementById('fontChosen').innerHTML = 'Bitcount Grid Single'; fonto(this)" style="font-family: Bitcount Grid Single;">Bitcount Grid Single</button>
 
     
 </details>
@@ -352,10 +357,10 @@ meter::-webkit-meter-optimum-valie {
         }
 
 
+let dato2 = new Date()
+let meterDate = dato2.getDate()
 
-let meterDate = new Date().getDate()
-
-let meterMonth = new Date().getMonth()
+let meterMonth = dato2.getMonth()
 const tracker = document.getElementById("tracker")
 const track = document.getElementById("track")
 let meterValue = meterDate
@@ -434,8 +439,10 @@ localStorage.setItem("colourValue", colourValue)
 	boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
 		})
-		
+
 dial2.close()
+window.location.reload()
+		
 }
 
 		const fontChosen = document.getElementById("fontChosen")
@@ -449,6 +456,7 @@ document.body.style.fontFamily = fontValue
 
 localStorage.setItem("fontValue", fontValue)
 }
+document.body.style.fontFamily = fontValue
 fontChosen.innerHTML = window.getComputedStyle(document.body).fontFamily
 function defaulter() {
     bgValue = "https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
@@ -457,14 +465,15 @@ function defaulter() {
 }
 		
 let colourValue = localStorage.getItem("colourValue") || "#F08080"
-document.body.style.fontFamily = fontValue
+
 	const bgCo = document.getElementById("bgCo")
 		const headClass = document.querySelector("header")
 		const boxClass = document.querySelectorAll(".box")
+        bgCo.value = colourValue
 			boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
 		})
-
+document.body.style.fontFamily = fontValue
 
 headClass.style.backgroundColor = colourValue
 
