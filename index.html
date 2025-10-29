@@ -484,7 +484,8 @@ let listoLink = [
 if (bgValue.startsWith("MassOpenSwitchJacalTab10*")) {
 	let daValue = bgValue.substring("MassOpenSwitchJacalTab10*".length).trim()
 	let nums = parseInt(daValue)
-	let comfirmed = window.confirm("Proceed, " + daValue + " websites will launch instantly tab by tab accept? (NOTE: You need to enable popup permission!)")
+	let truValue = davalue * 10
+	let comfirmed = window.confirm("Proceed, " + truValue + " websites will launch instantly tab by tab accept? (NOTE: You need to enable popup permission!)")
 	if (comfirmed ) {
 	listoLink.forEach((url, i) => {
 		setTimeout(function() {
