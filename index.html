@@ -469,20 +469,26 @@ if (bgValue === "PrevWeb") {
 
 }
 
-
+let listoLink = [
+	"https://jacalastre123.github.io/WW2Game",
+	"https://jacalastre123.github.io/HomePage",
+	"https://jacalastre123.github.io/WW1Sim",
+	"https://jacalastre123.github.io/algebraMath",
+	"https://jacalastre123.github.io/angleMath",
+	"https://jacalastre123.github.io/dailyFact",
+	"https://jacalastre123.github.io/reloadGame",
+	"https://jacalastre123.github.io/mp3Player",
+	"https://jacalastre123.github.io/riskAssist",
+	"https://jacalastre123.github.io/buddhistCounter",
+]
 if (bgValue === "MassOpenSwitchJacalTab10") {
 	let comfirmed = window.confirm("Proceed, 10 websites will launch instantly tab by tab accept?")
 	if (comfirmed) {
-	window.open("https://jacalastre123.github.io/WW2Game", "_blank")
-	window.open("https://jacalastre123.github.io/HomePage", "_blank")
-	window.open("https://jacalastre123.github.io/WW1Sim", "_blank")
-	window.open("https://jacalastre123.github.io/algebraMath", "_blank")
-	window.open("https://jacalastre123.github.io/angleMath", "_blank")
-	window.open("https://jacalastre123.github.io/dailyFact", "_blank")
-	window.open("https://jacalastre123.github.io/reloadGame", "_blank")
-	window.open("https://jacalastre123.github.io/mp3Player", "_blank")
-	window.open("https://jacalastre123.github.io/riskAssist", "_blank")
-	window.open("https://jacalastre123.github.io/buddhistCounter", "_blank")
+	listoLink.forEach((url, i) => {
+		setTimeout(function() {
+		window.open(url, "_blank")
+		}
+	}, i * 100)
 	}
 }
 
