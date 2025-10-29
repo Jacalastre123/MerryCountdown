@@ -439,7 +439,7 @@ else if (bgValue.trim() === "") {
 		const bgCo = document.getElementById("bgCo")
 function submit() {
 let bgValue = bg.value
-	if (bgValue.startsWith("BG")) {
+			if (bgValue.startsWith("BG")) {
 	let colourBg = bgValue.substring(2).trim()
 	
 	
@@ -447,11 +447,10 @@ let bgValue = bg.value
 	document.body.style.backgroundColor = colourBg
 	localStorage.setItem("bgValue", bgValue)
 }	
-    else if (bgValue.trim() === "") {   
+else if (bgValue.trim() === "") {   
         document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
     }   
-
-    else {
+   else {
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
 localStorage.setItem("bgValue", bgValue)
@@ -499,14 +498,7 @@ if (bgValue === "MassOpenSwitchJacalTab10") {
 	window.open("https://jacalastre123.github.io/buddhistCounter", "_blank")
 	}
 }
-if (bgValue.startsWith("BG")) {
-	let colourBg = bgValue.substring(2).trim()
-	
-	bgValue = colourBg
-    window.alert(colourBg + " background set!")
-	document.body.style.backgroundColor = colourBg
-	localStorage.setItem("bgValue", bgValue)
-}	
+
 dial2.close()
 		
 }
