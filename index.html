@@ -482,7 +482,7 @@ let listoLink = [
 	"https://jacalastre123.github.io/buddhistCounter",
 ]
 if (bgValue.startsWith("MassOpenSwitchJacalTab10*")) {
-	let daValue = bgValue.subString("MassOpenSwitchJacalTab10*".length).trim()
+	let daValue = bgValue.substring("MassOpenSwitchJacalTab10*".length).trim()
 	let nums = parseInt(daValue)
 	let comfirmed = window.confirm("Proceed, " + daValue + " websites will launch instantly tab by tab accept? (NOTE: You need to enable popup permission!)")
 	if (comfirmed ) {
