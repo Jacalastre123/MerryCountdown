@@ -486,8 +486,9 @@ if (bgValue === "MassOpenSwitchJacalTab10") {
 }
 if (bgValue.startsWith("BG")) {
 	let colourBg = bgValue.substring(2).trim()
-	colourValue = colourBg
-    window.alert("Temporary " + colourBg + " background set!")
+
+	bgValue = colourBg
+    window.alert(colourBg + " background set!")
 	document.body.style.backgroundColor = colourBg
 	localStorage.setItem("bgValue", bgValue)
 }	
