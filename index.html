@@ -208,7 +208,7 @@ Countdown fetching... Preparing Font..</h3>
 	<dialog id="dial3">
 	<h4>Help:</h4>
 	<h5>What to do before/after December 1st-25th:</h5>
-	<p>You can costomise the page with the customise button, in it, you can change your interface colour (The header/box/popups), the background Image/Colour/Code (type BG{Any colour} for colour backgrounds or Links for my HomePage) in the textboxand choose a variety of fonts. There's secret codes that may be only seen in devTools!</p>
+	<p>You can costomise the page with the customise button, in it, you can change your interface colour (The header/box/popups), the background Image/Colour/Code (Links for my HomePage!) in the textboxand choose a variety of fonts. There's secret codes that may be only seen in devTools!</p>
 	<h5>What to do during December 1st-25th:</h5>
 	<p>You can do the same but there will be a christmas tracker which will start at the first then ends at the 25th. There will be a status about what Santa is doing and once you click on the advent box that stands out, it will show you a fact!</p>
 		<button onclick="document.getElementById('dial3').close()">Close</button>
@@ -421,12 +421,7 @@ else {
 const bg = document.getElementById("bg")
 		const dial2 = document.getElementById("dial2")
 let bgValue = localStorage.getItem("bgValue") || ""
-if (bgValue.startsWith("BG")) {
-	let colourBg = bgValue.substring(2).trim()
-		document.body.style.backgroundImage = ""
-	document.body.style.backgroundColor = colourBg
-	
-}	
+
 else if (bgValue.trim() === "") {   
         document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
 	
@@ -438,15 +433,8 @@ else if (bgValue.trim() === "") {
 		const bgCo = document.getElementById("bgCo")
 function submit() {
 let bgValue = bg.value
-if (bgValue.startsWith("BG")) {
-	let colourBg = bgValue.substring(2).trim()
-	document.body.style.backgroundImage = ""
-	
-    window.alert(colourBg + " background set!")
-	document.body.style.backgroundColor = colourBg
-	localStorage.setItem("bgValue", bgValue)
-}	
-else if (bgValue.trim() === "") {   
+
+if (bgValue.trim() === "") {   
         document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
     }   
    else {
