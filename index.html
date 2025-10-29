@@ -433,15 +433,22 @@ headClass.style.backgroundColor = colourValue
 
 dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
-document.body.style.fontFamily = fontValue
+
 
 localStorage.setItem("colourValue", colourValue)
 	boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
 		})
+if (bgValue === "Christmas Alert") {
+    window.alert("Merry Christmas")
 
+}
+if (bgValue === "TempBlue") {
+	let colourBg = bgValue.charAt(5)
+    window.alert("Temporary " + colourBg + " background set!")
+	document.body.backgroundColor = colourBG
+}	
 dial2.close()
-window.location.reload()
 		
 }
 
@@ -479,6 +486,4 @@ headClass.style.backgroundColor = colourValue
 
 dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
-    </script>
-</body>
-</html>
+    </s
