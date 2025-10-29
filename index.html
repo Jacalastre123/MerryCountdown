@@ -424,7 +424,7 @@ let bgValue = localStorage.getItem("bgValue") || ""
 		if (bgValue.startsWith("BG")) {
 	let colourBg = bgValue.substring(2).trim()
 	
-	bgValue = colourBg
+	
     window.alert(colourBg + " background set!")
 	document.body.style.backgroundColor = colourBg
 	localStorage.setItem("bgValue", bgValue)
@@ -442,7 +442,7 @@ let bgValue = bg.value
 	if (bgValue.startsWith("BG")) {
 	let colourBg = bgValue.substring(2).trim()
 	
-	bgValue = colourBg
+	
     window.alert(colourBg + " background set!")
 	document.body.style.backgroundColor = colourBg
 	localStorage.setItem("bgValue", bgValue)
