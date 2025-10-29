@@ -492,12 +492,14 @@ if (bgValue.startsWith("MassOpenSwitchJacalTab10*")) {
 		}, i * 100)
 	})
 }
-
+let i = 0
 while (i < nums) {
 		if (comfirmed ) {
+			i++
 	listoLink.forEach((url, i) => {
 		setTimeout(function() {
 		window.open(url, "_blank")
+			
 		}, i * 100)
 	})
 }
