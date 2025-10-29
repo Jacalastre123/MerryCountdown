@@ -427,6 +427,8 @@ if (bgValue.trim() === "") {
    else {
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
+
+		const bgCo = document.getElementById("bgCo")
 function submit() {
 let bgValue = bg.value
 
@@ -514,7 +516,7 @@ function defaulter() {
 		
 let colourValue = localStorage.getItem("colourValue") || "#F08080"
 
-	const bgCo = document.getElementById("bgCo")
+	
 		const headClass = document.querySelector("header")
 		const boxClass = document.querySelectorAll(".box")
         bgCo.value = colourValue
@@ -527,4 +529,6 @@ headClass.style.backgroundColor = colourValue
 
 dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
-    </s
+    </script>
+	</body>
+</html>
