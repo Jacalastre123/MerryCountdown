@@ -147,6 +147,7 @@ Countdown fetching... Preparing Font..</h3>
 <button onclick="stopMus(this)" id="musical">Start Music</button>
     
     <button onclick="document.getElementById('dial2').showModal()">Customise</button>
+	 <button onclick="document.getElementById('dial3').showModal()">Help</button>
 
 </div>
 
@@ -203,6 +204,15 @@ Countdown fetching... Preparing Font..</h3>
         <p id="info"></p>
         <button onclick="dial.close()">Close</button>
     </dialog>
+
+	<dialog id="dial3">
+	<h4>Help:</h4>
+	<h5>What to do before/after December 1st-25th:</h5>
+	<p>You can costomise the page with the customise button, in it, you can change your interface colour (The header/box/popups), the background Image/Colour/Code (type BG{Any colour} for colour backgrounds or Links for my HomePage) in the textboxand choose a variety of fonts. There's secret codes that may be only seen in devTools!</p>
+	<h5>What to do during December 1st-25th:</h5>
+	<p>You can do the same but there will be a christmas tracker which will start at the first then ends at the 25th. There will be a status about what Santa is doing and once you click on the advent box that stands out, it will show you a fact!</p>
+		<button onclick="document.getElementById("dial3").close()">Close</button>
+	</dialog>
     <script>
         const countdown = document.getElementById("countdown")
         const shelf = document.getElementById("shelf")
@@ -443,10 +453,41 @@ if (bgValue === "Christmas Alert") {
     window.alert("Merry Christmas")
 
 }
-if (bgValue === "TempBlue") {
-	let colourBg = bgValue.charAt(5)
+
+if (bgValue === "Links") {
+    window.alert("Find it all out on https://jacalastre123.github.io/HomePage")
+	
+
+}
+
+if (bgValue === "PrevWeb") {
+	window.open("jacalastre123.github.io/WW2Game", "_blank")
+	
+
+}
+
+
+if (bgValue === "MassOpenSwitchJacalTab10") {
+	let comfirmed = window.confirm("Proceed, 10 websites will launch instantly tab by tab accept?")
+	if (comfirmed) {
+	window.open("https://jacalastre123.github.io/WW2Game", "_blank")
+	window.open("https://jacalastre123.github.io/HomePage", "_blank")
+	window.open("https://jacalastre123.github.io/WW1Sim", "_blank")
+	window.open("https://jacalastre123.github.io/algebraMath", "_blank")
+	window.open("https://jacalastre123.github.io/angleMath", "_blank")
+	window.open("https://jacalastre123.github.io/dailyFact", "_blank")
+	window.open("https://jacalastre123.github.io/reloadGame", "_blank")
+	window.open("https://jacalastre123.github.io/mp3Player", "_blank")
+	window.open("https://jacalastre123.github.io/riskAssist", "_blank")
+	window.open("https://jacalastre123.github.io/buddhistCounter", "_blank")
+	}
+}
+if (bgValue.startsWith("BG")) {
+	let colourBg = bgValue.substring(2).trim()
+	colourValue = colourBg
     window.alert("Temporary " + colourBg + " background set!")
-	document.body.backgroundColor = colourBG
+	document.body.style.backgroundColor = colourBg
+	localStorage.setItem("bgValue", bgValue)
 }	
 dial2.close()
 		
