@@ -444,7 +444,7 @@ if (bgValue.startsWith("BG")) {
 	
     window.alert(colourBg + " background set!")
 	document.body.style.backgroundColor = colourBg
-	
+	localStorage.setItem("bgValue", bgValue)
 }	
 else if (bgValue.trim() === "") {   
         document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
