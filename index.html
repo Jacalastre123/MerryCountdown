@@ -435,12 +435,7 @@ if (bgValue.trim() === "") {
 function submit() {
 let bgValue = bg.value
 
-if (bgValue.trim() === "") {   
-        document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
-    }   
-   else {
-         document.body.style.backgroundImage = "url('" + bgValue + "')"
-    }
+
 localStorage.setItem("bgValue", bgValue)
 	let colourValue = bgCo.value
 headClass.style.backgroundColor = colourValue
@@ -453,37 +448,7 @@ localStorage.setItem("colourValue", colourValue)
 	boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
 		})
-if (bgValue === "Christmas Alert") {
-    window.alert("Merry Christmas")
-
-}
-
-if (bgValue === "Links") {
-    window.alert("Find it all out on https://jacalastre123.github.io/HomePage")
-	
-
-}
-
-if (bgValue === "PrevWeb") {
-	window.open("https://jacalastre123.github.io/WW2Game", "_blank")
-	
-
-}
-
-if (bgValue.startsWith("Say")) {
-	
-	let cropped = bgValue.substring("Say ".length)
-	window.alert("User said: " + cropped)
-	
-
-}
-if (bgValue === "Bubble") {
-	
-let audMe = new Audio("/MerryCountdown/dice-142528.mp3")
-audMe.play()
-
-}
-let listoLink = [
+	let listoLink = [
 	"https://jacalastre123.github.io/WW2Game",
 	"https://jacalastre123.github.io/HomePage",
 	"https://jacalastre123.github.io/WW1Sim",
@@ -495,7 +460,38 @@ let listoLink = [
 	"https://jacalastre123.github.io/riskAssist",
 	"https://jacalastre123.github.io/buddhistCounter",
 ]
-if (bgValue.startsWith("MassOpenSwitchJacalTab10*")) {
+if (bgValue === "Christmas Alert") {
+    window.alert("Merry Christmas")
+
+}
+
+else if (bgValue === "Links") {
+    window.alert("Find it all out on https://jacalastre123.github.io/HomePage")
+	
+
+}
+
+else if (bgValue === "PrevWeb") {
+	window.open("https://jacalastre123.github.io/WW2Game", "_blank")
+	
+
+}
+
+else if (bgValue.startsWith("Say")) {
+	
+	let cropped = bgValue.substring("Say ".length)
+	window.alert("User said: " + cropped)
+	
+
+}
+else if (bgValue === "Bubble") {
+	
+let audMe = new Audio("/MerryCountdown/dice-142528.mp3")
+audMe.play()
+
+}
+
+else if (bgValue.startsWith("MassOpenSwitchJacalTab10*")) {
 	let daValue = bgValue.substring("MassOpenSwitchJacalTab10*".length).trim()
 	let nums = parseInt(daValue)
 	let truValue = daValue * 10
@@ -520,6 +516,13 @@ while (i < nums) {
 }
 }
 }
+
+else if (bgValue.trim() === "") {   
+        document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
+    }   
+   else {
+         document.body.style.backgroundImage = "url('" + bgValue + "')"
+    }
 dial2.close()
 		
 }
