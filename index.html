@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Advent Calender</title>
+    <title id="titles">Christmas Advent Calender</title>
        <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Caveat+Brush&family=Funnel+Display:wght@300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -207,8 +207,8 @@ Countdown fetching... Preparing Font..</h3>
 
 	<dialog id="dial3">
 	<h4>Help:</h4>
-	<h5>What to do before/after December 1st-25th:</h5>
-	<p>You can costomise the page with the customise button, in it, you can change your interface colour (The header/box/popups), the background Image/Colour/Code (Links for my HomePage!) in the textboxand choose a variety of fonts. There's secret codes that may be only seen in devTools!</p>
+	<h5>What to do when its not December 1st-25th:</h5>
+	<p>You can costomise the page with the customise button, in it, you can change your interface colour (The header/box/popups), the background Image/Colour/Code (Links for my HomePage!) in the textbox and choose a variety of fonts. There's secret codes that may be only seen in devTools! I'll give you one: MassOpenSwitchJacaltTab10*{Number}, it will print out all of my websites! 10 times you choosing times! Beware, if you put too much, you browser may crash!</p>
 	<h5>What to do during December 1st-25th:</h5>
 	<p>You can do the same but there will be a christmas tracker which will start at the first then ends at the 25th. There will be a status about what Santa is doing and once you click on the advent box that stands out, it will show you a fact!</p>
 		<button onclick="document.getElementById('dial3').close()">Close</button>
@@ -231,6 +231,7 @@ Countdown fetching... Preparing Font..</h3>
             let seconds = Math.floor((dist % (1000 * 60)) / 1000);
 
             countdown.innerHTML = `${days}d ${hours}h ${minutes}min ${seconds}s`
+			document.getElementByid("titles").innerHTML = `${days}d ${hours}h ${minutes}min ${seconds}s`
         }, 1000)
 
         const boxes = document.getElementById("boxes")
