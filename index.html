@@ -469,6 +469,19 @@ if (bgValue === "PrevWeb") {
 
 }
 
+if (bgValue.startsWith("Say")) {
+	
+	let cropped = bgValue.substring("Say ".length)
+	window.alert("User said: " + cropped)
+	
+
+}
+if (bgValue === "Bubble") {
+	
+let audMe = new Audio("/MerryCountdown/dice-142528.mp3")
+audMe.play()
+
+}
 let listoLink = [
 	"https://jacalastre123.github.io/WW2Game",
 	"https://jacalastre123.github.io/HomePage",
