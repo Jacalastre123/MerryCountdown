@@ -155,7 +155,7 @@ Countdown fetching... Preparing Font..</h3>
 <dialog id="dial2">
 	<h3>Customising Menu</h3>
 <form>
-    <label for="bg" class="label1">Background Image: </label>
+    <label for="bg" class="label1">Background Image/Code: </label>
     <input type="text" id="bg"><br><br>
 	<label for="bgCo" class="label1">Interface Colour: </label>
     <input type="color" id="bgCo" value="#f08080" >
@@ -212,6 +212,11 @@ Countdown fetching... Preparing Font..</h3>
 	<h5>What to do during December 1st-25th:</h5>
 	<p>You can do the same but there will be a christmas tracker which will start at the first then ends at the 25th. There will be a status about what Santa is doing and once you click on the advent box that stands out, it will show you a fact!</p>
 		<button onclick="document.getElementById('dial3').close()">Close</button>
+	</dialog>
+	<dialog id="dial4">
+	<h4>Code List</h4>
+	<p>MassOpenSwitchJacaltab10*{number of your choice}: Will open 10 times as much tabs of my websites ask you ask for. <br>Christmas Alert: Alerts you Christmas!<br>Links: Show the link to my homepage<br>Say {something you want}: I will say it!<br>PrevWeb: Goes to the website that was made previously<br>CodeList: Led you here!</p>
+		<button onclick="document.getElementById('dial4').close()">Close</button>
 	</dialog>
     <script>
         const countdown = document.getElementById("countdown")
@@ -443,7 +448,7 @@ headClass.style.backgroundColor = colourValue
 dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
-
+dial4.style.backgroundColor = colourValue
 localStorage.setItem("colourValue", colourValue)
 	boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
@@ -488,6 +493,12 @@ else if (bgValue === "Dice") {
 	
 let audMe = new Audio("/MerryCountdown/dice-142528.mp3")
 audMe.play()
+
+}
+
+else if (bgValue === "CodeList") {
+	
+document.getElementById("dial4").showModal()
 
 }
 
@@ -561,6 +572,7 @@ headClass.style.backgroundColor = colourValue
 
 dial2.style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
+		dial4.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 		
     </script>
