@@ -147,6 +147,7 @@ Countdown fetching... Preparing Font..</h3>
 <button onclick="stopMus(this)" id="musical">Start Music</button>
     
     <button onclick="document.getElementById('dial2').showModal()">Customise</button>
+	<button onclick="document.getElementById('dial4').showModal(); shareable()">Share</button>
 	 <button onclick="document.getElementById('dial3').showModal()">Help</button>
 
 </div>
@@ -217,6 +218,12 @@ Countdown fetching... Preparing Font..</h3>
 	<h4>Code List</h4>
 	<p>MassOpenSwitchJacaltab10*{number of your choice}: Will open 10 times as much tabs of my websites ask you ask for. <br>Christmas Alert: Alerts you Christmas!<br>Links: Show the link to my homepage<br>Say {something you want}: I will say it!<br>PrevWeb: Goes to the website that was made previously<br>CodeList: Led you here!</p>
 		<button onclick="document.getElementById('dial4').close()">Close</button>
+	</dialog>
+
+	<dialog id="dial4">
+		<h4>Share here</h4>
+		<h5 id="shares"></h5>
+		<button onclick="sharers()">Share</button>
 	</dialog>
     <script>
         const countdown = document.getElementById("countdown")
@@ -597,7 +604,32 @@ document.getElementById("dial").style.backgroundColor = colourValueURL
 document.body.style.fontFamily = fontValueURL
 
 headClass.style.backgroundColor = colourValueURL
-document.body.backgroundImage = `url('${bgValueURL}')`
+document.body.style.backgroundImage = `url('${bgValueURL}')`
+	
 }
+const dial4 = dsocument.getElementById("dial4")
+				const shares = dial4.querySelector("#shares")
+		function shareable() {
+			const shareLink new URLSearchParams({
+
+				font: fontValue,
+				colour: colourValue,
+				bg: bgInput.value,
+			})
+
+			shares.innerHTML = `${location.origin}${location.pathname}?${shareLink.toString()}`
+			
+			
+		}
+
+		function sharer() {
+			navigator.clipboard.writeText(shares.value)
+			shares.innerHTML = "Copied"
+
+			setTimeout(function() {
+
+				shareable()
+			}, 1000)
+		}
     </script>
 	</body>
