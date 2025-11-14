@@ -104,7 +104,7 @@ padding: 5px;
 width: 50%;
 text-align: center;
 justify-content: center;
-
+border-radius: 3px;
 
 }
 
@@ -534,6 +534,7 @@ else if (bgValue.trim() === "") {
    else {
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
+	updates()
 dial2.close()
 		
 }
@@ -574,6 +575,29 @@ dial2.style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
 		dial4.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
-		
+
+function updates(){
+const param = new URL(`https://jacalastre123.github.io/MerryCountdown?fontValue=${fontValue}&colourValue=${colourValue}&bgValue=${bgValue}`)
+const colourValueURL = param.searchParams.get("colourValue")
+const fontValueURL = param.searchParams.get("fontValue")
+const bgValueURL = param.searchParams.get("bgValue")
+
+		document.body.style.fontFamily = fontValue
+
+headClass.style.backgroundColor = colourValue
+
+dial2.style.backgroundColor = colourValueURL
+	dial3.style.backgroundColor = colourValueURL
+		dial4.style.backgroundColor = colourValueURL
+document.getElementById("dial").style.backgroundColor = colourValueURL
+		 bgCo.value = colourValue
+			boxClass.forEach(box => {
+			box.style.backgroundColor = colourValueURL
+		})
+document.body.style.fontFamily = fontValueURL
+
+headClass.style.backgroundColor = colourValueURL
+document.body.backgroundImage = `url('${bgValueURL}')`
+}
     </script>
 	</body>
