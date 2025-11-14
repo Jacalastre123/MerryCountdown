@@ -125,7 +125,7 @@ cursor: pointer;
     padding: 5px;
     
 }
-#dial2, #dial1, #dial3 {
+#dial2, #dial1, #dial3, dial4 {
     background-color: lightcoral;
     border-radius: 20px;
 
@@ -220,7 +220,7 @@ Countdown fetching... Preparing Font..</h3>
 		<button onclick="document.getElementById('dial4').close()">Close</button>
 	</dialog>
 
-	<dialog id="dial4">
+	<dialog id="dial5">
 		<h4>Share here</h4>
 		<h5 id="shares"></h5>
 		<button onclick="dial4.showModal();sharers()">Share</button>
@@ -456,6 +456,7 @@ dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
 dial4.style.backgroundColor = colourValue
+	dial5.style.backgroundColor = colourValue
 localStorage.setItem("colourValue", colourValue)
 	boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
@@ -581,6 +582,7 @@ headClass.style.backgroundColor = colourValue
 dial2.style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
 		dial4.style.backgroundColor = colourValue
+		dial5.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 
 function updates(){
@@ -596,6 +598,7 @@ headClass.style.backgroundColor = colourValue
 dial2.style.backgroundColor = colourValueURL
 	dial3.style.backgroundColor = colourValueURL
 		dial4.style.backgroundColor = colourValueURL
+	dial6.style.backgroundColor = colourValueURL
 document.getElementById("dial").style.backgroundColor = colourValueURL
 		 bgCo.value = colourValue
 			boxClass.forEach(box => {
@@ -607,8 +610,8 @@ headClass.style.backgroundColor = colourValueURL
 document.body.style.backgroundImage = `url('${bgValueURL}')`
 	
 }
-const dial4 = dsocument.getElementById("dial4")
-				const shares = dial4.querySelector("#shares")
+const dial5 = dsocument.getElementById("dial5")
+				const shares = dial5.querySelector("#shares")
 		function shareable() {
 			const shareLink new URLSearchParams({
 
