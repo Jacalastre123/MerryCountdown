@@ -147,7 +147,7 @@ Countdown fetching... Preparing Font..</h3>
 <button onclick="stopMus(this)" id="musical">Start Music</button>
     
     <button onclick="document.getElementById('dial2').showModal()">Customise</button>
-	<button onclick="document.getElementById('dial5').showModal(); shareable()">Share</button>
+	
 	 <button onclick="document.getElementById('dial3').showModal()">Help</button>
 
 </div>
@@ -220,11 +220,7 @@ Countdown fetching... Preparing Font..</h3>
 		<button onclick="document.getElementById('dial4').close()">Close</button>
 	</dialog>
 
-	<dialog id="dial5">
-		<h4>Share here</h4>
-		<input type="text" id="shares" readonly>
-		<button onclick="sharer()">Share</button>
-	</dialog>
+
     <script>
         const countdown = document.getElementById("countdown")
         const shelf = document.getElementById("shelf")
@@ -461,7 +457,7 @@ dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
 dial4.style.backgroundColor = colourValue
-	dial5.style.backgroundColor = colourValue
+
 localStorage.setItem("colourValue", colourValue)
 	boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
@@ -549,8 +545,7 @@ else if (bgValue.trim() === "") {
     }
 
 	bgCo.value = colourValue
-update()
-	shareable()
+
 dial2.close()
 		
 }
@@ -593,62 +588,5 @@ dial2.style.backgroundColor = colourValue
 		dial5.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 
-function update() {
-const param = new URLSearchParams(window.location.search)
-const colourValueURL = param.get("colour") || localStorage.getItem("colourValue") || "f08080"
-const fontValueURL = param.get("font") || localStorage.getItem("fontValue") || "Rubik"
-const bgValueURL = param.get("bg") || localStorage.getItem("bgValue") || ""
-	colourValue = colourValueURL ?? localStorage.getItem("colourValue") ?? "#F08080"
-    fontValue = fontValueURL ?? localStorage.getItem("fontValue") ?? "Rubik"
-    bgValue = bgValueURL ?? localStorage.getItem("bgValue") ?? ""
-	if (bgValueURL.trim() === "") {   
-        document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
-    }   
-	else{
-		document.body.style.backgroundImage = `url(${bgValueURL})`
-	}
-	
-		document.body.style.fontFamily = fontValueURL
-
-headClass.style.backgroundColor = colourValueURL
-
-dial2.style.backgroundColor = colourValueURL
-	dial3.style.backgroundColor = colourValueURL
-		dial4.style.backgroundColor = colourValueURL
-	dial5.style.backgroundColor = colourValueURL
-document.getElementById("dial").style.backgroundColor = colourValueURL
-		 bgCo.value = colourValueURL
-			boxClass.forEach(box => {
-			box.style.backgroundColor = colourValueURL
-		})
-document.body.style.fontFamily = fontValueURL
-
-headClass.style.backgroundColor = colourValueURL
-localStorage.setItem("fontValue", fontValue)
-	localStorage.setItem("colourValue", colourValue)
-	localStorage.setItem("bgValue", bgValue)
-	
-}
-window.addEventListener("DOMContentLoaded", update)
-		function shareable() {
-			const shareLink = new URLSearchParams({
-
-				font: fontValue,
-				colour: colourValue,
-				bg: bgValue,
-			})
-
-			shares.value = `${location.origin}${location.pathname}?${shareLink.toString()}`
-			
-			
-		}
-
-		function sharer() {
-			navigator.clipboard.writeText(shares.value)
-			.then(() => shares.value = "Copied")
-			.catch(err => console.error("Sorry, can't be copied"))
-			shares.value = "Copied"
-			dial5.close()
-		}
     </script>
 	</body>
