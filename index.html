@@ -547,7 +547,7 @@ else if (bgValue.trim() === "") {
    else {
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
-
+update()
 dial2.close()
 		
 }
@@ -589,7 +589,14 @@ dial2.style.backgroundColor = colourValue
 		dial4.style.backgroundColor = colourValue
 		dial5.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
+function update() {
 
+	const param = new URLSearchParams(window.location.search)
+const colourValueURL = param.get("colour") || localStorage.getItem("colourValue") || "f08080"
+const fontValueURL = param.get("font") || localStorage.getItem("fontValue") || "Rubik"
+const bgValueURL = param.get("bg") || localStorage.getItem("bgValue") || ""
+	
+}
 window.addEventListener("DOMContentLoaded", () => {
 const param = new URLSearchParams(window.location.search)
 const colourValueURL = param.get("colour") || localStorage.getItem("colourValue") || "f08080"
