@@ -595,6 +595,12 @@ const param = new URLSearchParams(window.location.search)
 const colourValueURL = param.get("font") || fontValue
 const fontValueURL = param.get("colour") || colourValue
 const bgValueURL = param.get("bg") || bgValue
+	if (bgValue.trim() === "") {   
+        document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
+    }   
+	else{
+		document.body.style.backgroundImage = `url(${bgValueURL})`
+	}
 		document.body.style.fontFamily = fontValue
 
 headClass.style.backgroundColor = colourValue
@@ -611,7 +617,7 @@ document.getElementById("dial").style.backgroundColor = colourValueURL
 document.body.style.fontFamily = fontValueURL
 
 headClass.style.backgroundColor = colourValueURL
-document.body.style.backgroundImage = `url(${bgValueURL})`
+
 	
 }
 updates()
