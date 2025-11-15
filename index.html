@@ -592,7 +592,7 @@ document.getElementById("dial").style.backgroundColor = colourValue
 
 window.addEventListener("DOMContentLoaded", () => {
 const param = new URLSearchParams(window.location.search)
-const colourValueURL = param.get("font") || localStorage.getItem("fontValue") || "Rubik":
+const colourValueURL = param.get("font") || localStorage.getItem("fontValue") || "Rubik"
 const fontValueURL = param.get("colour") || localStorage.getItem("colourValue") || "#f08080"
 const bgValueURL = param.get("bg") || localStorage.getItem("bgValue") || ""
 	if (bgValue.trim() === "") {   
