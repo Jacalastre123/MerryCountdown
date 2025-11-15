@@ -591,11 +591,10 @@ dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 
 function updates(){
-const param = new URL(`https://jacalastre123.github.io/MerryCountdown?fontValue=${fontValue}&colourValue=${colourValue}&bgValue=${bgValue}`)
-const colourValueURL = param.searchParams.get("colourValue")
-const fontValueURL = param.searchParams.get("fontValue")
-const bgValueURL = param.searchParams.get("bgValue")
-
+const param = new URL(window.location.search)
+const colourValueURL = param.get("font") || fontValue
+const fontValueURL = param.get("colour") || colourValue
+const bgValueURL = param.get("bg") || bgValue
 		document.body.style.fontFamily = fontValue
 
 headClass.style.backgroundColor = colourValue
@@ -631,6 +630,8 @@ updates()
 
 		function sharer() {
 			navigator.clipboard.writeText(shares.value)
+			.then(() => shares.value = "Copied")
+			.catch(err => console.error("Sorry, can't be copied"))
 			shares.innerHTML = "Copied"
 			dial5.close()
 		}
