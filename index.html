@@ -450,11 +450,11 @@ if (bgValue.trim() === "") {
 
 		const bgCo = document.getElementById("bgCo")
 function submit() {
-let bgValue = bg.value
+bgValue = bg.value
 
 
 localStorage.setItem("bgValue", bgValue)
-	let colourValue = bgCo.value
+colourValue = bgCo.value
 headClass.style.backgroundColor = colourValue
 
 dial2.style.backgroundColor = colourValue
@@ -547,7 +547,7 @@ else if (bgValue.trim() === "") {
    else {
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
-
+update()
 dial2.close()
 		
 }
