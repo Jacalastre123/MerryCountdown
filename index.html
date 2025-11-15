@@ -624,7 +624,7 @@ document.body.style.backgroundImage = `url('${bgValueURL}')`
 				bg: bgInput.value,
 			})
 
-			shares.innerHTML = `${location.origin}${location.pathname}?${shareLink.toString()}`
+			shares.value = `${location.origin}${location.pathname}?${shareLink.toString()}`
 			
 			
 		}
@@ -632,11 +632,7 @@ document.body.style.backgroundImage = `url('${bgValueURL}')`
 		function sharer() {
 			navigator.clipboard.writeText(shares.value)
 			shares.innerHTML = "Copied"
-
-			setTimeout(function() {
-
-				shareable()
-			}, 1000)
+			dial5.close()
 		}
     </script>
 	</body>
