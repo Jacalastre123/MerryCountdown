@@ -104,7 +104,7 @@ padding: 5px;
 width: 50%;
 text-align: center;
 justify-content: center;
-border-radius: 3px;
+
 
 }
 
@@ -125,7 +125,7 @@ cursor: pointer;
     padding: 5px;
     
 }
-#dial2, #dial1, #dial3, #dial4, #dial5 {
+#dial2, #dial1, #dial3 {
     background-color: lightcoral;
     border-radius: 20px;
 
@@ -147,7 +147,6 @@ Countdown fetching... Preparing Font..</h3>
 <button onclick="stopMus(this)" id="musical">Start Music</button>
     
     <button onclick="document.getElementById('dial2').showModal()">Customise</button>
-	
 	 <button onclick="document.getElementById('dial3').showModal()">Help</button>
 
 </div>
@@ -219,8 +218,6 @@ Countdown fetching... Preparing Font..</h3>
 	<p>MassOpenSwitchJacaltab10*{number of your choice}: Will open 10 times as much tabs of my websites ask you ask for. <br>Christmas Alert: Alerts you Christmas!<br>Links: Show the link to my homepage<br>Say {something you want}: I will say it!<br>PrevWeb: Goes to the website that was made previously<br>CodeList: Led you here!</p>
 		<button onclick="document.getElementById('dial4').close()">Close</button>
 	</dialog>
-
-
     <script>
         const countdown = document.getElementById("countdown")
         const shelf = document.getElementById("shelf")
@@ -429,11 +426,6 @@ else {
 
 const bg = document.getElementById("bg")
 		const dial2 = document.getElementById("dial2")
-		const dial5 = document.getElementById("dial5")
-		const shares = dial5.querySelector("#shares")
-		
-		
-		
 let bgValue = localStorage.getItem("bgValue") || ""
 
 if (bgValue.trim() === "") {   
@@ -446,18 +438,17 @@ if (bgValue.trim() === "") {
 
 		const bgCo = document.getElementById("bgCo")
 function submit() {
-bgValue = bg.value
+let bgValue = bg.value
 
 
 localStorage.setItem("bgValue", bgValue)
-colourValue = bgCo.value
+	let colourValue = bgCo.value
 headClass.style.backgroundColor = colourValue
 
 dial2.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
 dial4.style.backgroundColor = colourValue
-
 localStorage.setItem("colourValue", colourValue)
 	boxClass.forEach(box => {
 			box.style.backgroundColor = colourValue
@@ -543,9 +534,6 @@ else if (bgValue.trim() === "") {
    else {
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
-
-	bgCo.value = colourValue
-
 dial2.close()
 		
 }
@@ -585,8 +573,7 @@ headClass.style.backgroundColor = colourValue
 dial2.style.backgroundColor = colourValue
 	dial3.style.backgroundColor = colourValue
 		dial4.style.backgroundColor = colourValue
-		dial5.style.backgroundColor = colourValue
 document.getElementById("dial").style.backgroundColor = colourValue
-
+		
     </script>
 	</body>
