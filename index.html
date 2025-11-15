@@ -547,6 +547,8 @@ else if (bgValue.trim() === "") {
    else {
          document.body.style.backgroundImage = "url('" + bgValue + "')"
     }
+
+	bgCo.value = colourValue
 update()
 	shareable()
 dial2.close()
@@ -596,9 +598,9 @@ const param = new URLSearchParams(window.location.search)
 const colourValueURL = param.get("colour") || localStorage.getItem("colourValue") || "f08080"
 const fontValueURL = param.get("font") || localStorage.getItem("fontValue") || "Rubik"
 const bgValueURL = param.get("bg") || localStorage.getItem("bgValue") || ""
-	colourValue = colourParam ?? localStorage.getItem("colourValue") ?? "#F08080"
-    fontValue = fontParam ?? localStorage.getItem("fontValue") ?? "Rubik"
-    bgValue = bgParam ?? localStorage.getItem("bgValue") ?? ""
+	colourValue = colourValueURL ?? localStorage.getItem("colourValue") ?? "#F08080"
+    fontValue = fontValueURL ?? localStorage.getItem("fontValue") ?? "Rubik"
+    bgValue = bgValueURL ?? localStorage.getItem("bgValue") ?? ""
 	if (bgValueURL.trim() === "") {   
         document.body.style.backgroundImage = `url("https://tse2.mm.bing.net/th/id/OIP.LmHqxo3jLnzZ02qgXqTiMQHaE5?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3");`
     }   
