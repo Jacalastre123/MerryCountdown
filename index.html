@@ -223,7 +223,7 @@ Countdown fetching... Preparing Font..</h3>
         const shelf = document.getElementById("shelf")
          const container = document.getElementById("container")
           const musical = document.getElementById("musical")
-        let countDate = new Date("Dec 25, 2025 00:00:00").getTime()
+        let countDate = new Date("Dec 25, " + new Date().getFullYear() + " 00:00:00").getTime()
         let items = null
 
         const x = setInterval(function() {
